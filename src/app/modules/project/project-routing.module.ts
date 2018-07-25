@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FormoneComponent } from './formone/formone.component.ts';
+import { FormoneComponent } from './formone/formone.component';
+import {HomeComponent} from '../../home/home.component';
 
 const projectRoutes: Routes = [
     {
@@ -9,7 +10,7 @@ const projectRoutes: Routes = [
         component: FormoneComponent,
         children: [
             {
-                path: '',
+                path: ':id',
                 component: FormoneComponent,
                 children: [
                     {
@@ -23,7 +24,7 @@ const projectRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(projectRoutes)],
   exports: [RouterModule]
 })
 export class ProjectRoutingModule { }

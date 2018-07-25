@@ -1,3 +1,52 @@
-<p>
-  formone works!
-</p>
+<div>&nbsp;</div>
+<section id="contact">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">{{projectTitle}}</h2>
+    <hr class="star-dark mb-5">
+    <h3 class="text-center help-block text-danger"> <p>Services:</p>  </h3>
+    <div class="row">
+
+      <div class="col-lg-8 mx-auto">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+        <form [formGroup]="formOneForm" (submit)="postProjectFormOne(formOneForm.value)">
+
+            <div class="control-group">
+                <div class="form-group  controls mb-0 pl-5">
+                    <label>Service Name</label>
+                    <!--<select class="form-control" formControlName="servicename" placeholder="Service Title">
+                        <option id="0">select</option>
+                        <option *ngFor="let service of services" id= {{service._id}}>
+                            {{service.title}}
+                        </option>
+                    </select>-->
+                    <label class="ml-5" *ngFor="let service of services"><input  class="form-control" type="checkbox" value="service.title" formControlName="servicecheck"  (change)="service.title = !service.title" />{{service.title}}</label>
+                    <p class="help-block text-danger" *ngIf="!formOneForm.controls['servicename'].valid && formOneForm.controls['servicename'].touched"> This field is required</p>
+                </div>
+            </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Sercice Name</label>
+              <input type="text" class="form-control" formControlName="servicename" placeholder="Service Title" />
+              <p class="help-block text-danger" *ngIf="!formOneForm.controls['servicename'].valid && formOneForm.controls['servicename'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Project</label>
+              <input type="text" class="form-control" formControlName="servicetype" placeholder="Service Type" />
+              <p class="help-block text-danger" *ngIf="!formOneForm.controls['servicetype'].valid && formOneForm.controls['servicetype'].touched"> This field is required</p>
+            </div>
+          </div>
+
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-xl" id="submitButton" [disabled]="!formOneForm.valid">Post Project Form one</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -5,13 +5,16 @@ import { CommonService } from '../../common.service';
 
 @Injectable()
 export class AuthService {
+    private base_url = 'http://localhost:4523/';
+    //  base_url = 'http://textmercato.com:4523/';
+    private base_url1 = 'http://textmercato.com:4523/';
+    // private _signupUrl = 'http://10.182.207.191:4523/signup';
+    private _signupUrl =  this.base_url1 + 'signup';
+    private _loginUrl = this.base_url + 'signin';
+    private _logoutUrl = this.base_url + 'signout';
+    // private _loginUrl = 'signin';
+    private _contactusUrl = this.base_url1 + 'contact-us';
 
-    //private _signupUrl = "http://10.182.207.191:4523/signup"
-    private _signupUrl = "http://localhost:4523/signup";
-    private _loginUrl = "http://localhost:4523/signin";
-    private _logoutUrl = "http://localhost:4523/signout";
-    //private _loginUrl = "http://textmercato.com:4523/signin";
-    private _contactusUrl = "http://localhost:4523/contact-us";
 
     constructor(private http: HttpClient,
                 private _stored: CommonService) { }

@@ -25,8 +25,8 @@ export class HomeComponent implements OnInit {
 
     postProject(FormData) {
         //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.loginUserData))
-        localStorage.setItem('projectDetails', JSON.stringify(this.projectTitle));
-        this._router.navigate(['projectform']);
+        localStorage.setItem('projectTitle', FormData.projectTitle);
+        this._router.navigate(['formone']);
     }
 
 }

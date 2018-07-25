@@ -9,13 +9,13 @@ import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-      BrowserModule,
-    FormsModule,
-      ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
     providers : [AuthService, CommonService],
-  declarations: [SignupComponent, LogoutComponent]
+    declarations: [SignupComponent, LogoutComponent]
 })
 export class AuthenticateModule { }

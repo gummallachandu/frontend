@@ -3,7 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthenticateModule } from './modules/authenticate/authenticate.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProjectModule } from './modules/project/project.module';
+
 import { CommonService } from './common.service';
+import { ProjectService } from './modules/project/project.service';
 
 
 import { ContactusComponent } from './contactus/contactus.component';
@@ -14,19 +17,12 @@ import { LoginComponent } from './modules/authenticate/login/login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { SignupComponent } from './modules/authenticate/signup/signup.component';
 import { LogoutComponent} from './modules/authenticate/logout/logout.component';
-import { ProjectformComponent } from './home/projectform/projectform.component';
 
 
 const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
-        children: [
-            {
-                path: 'projectform',
-                component: ProjectformComponent
-            }
-         ]
     },
     {
         path: 'contactus',
@@ -52,9 +48,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes), FormsModule, ReactiveFormsModule, BrowserModule],
+  imports: [ RouterModule.forRoot(routes), FormsModule, ReactiveFormsModule, BrowserModule, ProjectModule],
   exports: [ RouterModule ],
-  providers: [ CommonService ]
+  providers: [ CommonService, ProjectService ]
 })
 export class AppRoutingModule {  }
 export const routingComponets = [
@@ -65,6 +61,5 @@ export const routingComponets = [
     LoginComponent,
     AboutusComponent,
     SignupComponent,
-    LogoutComponent,
-    ProjectformComponent
+    LogoutComponent
 ]
