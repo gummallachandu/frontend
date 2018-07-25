@@ -1,0 +1,57 @@
+<!-- Contact Section -->
+<div>&nbsp;</div>
+<section id="contact">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">SignUp</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+        <form [formGroup]="signupForm" (submit)="signupUser(signupForm.value)">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Username</label>
+              <input type="text" class="form-control" formControlName="email" placeholder="Email" />
+              <p class="help-block text-danger" *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].touched"> This field is required and in email format</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Password"/>
+              <p class="help-block text-danger" *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>First Name</label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"/>
+              <p class="help-block text-danger" *ngIf="!signupForm.controls['firstName'].valid && signupForm.controls['firstName'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Last Name</label>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" />
+              <p class="help-block text-danger" *ngIf="!signupForm.controls['lastName'].valid && signupForm.controls['lastName'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>User Name</label>
+              <input type="text" class="form-control" formControlName="username" placeholder="User Name"/>
+              <p class="help-block text-danger" *ngIf="!signupForm.controls['username'].valid && signupForm.controls['username'].touched"> This field is required</p>
+            </div>
+          </div>
+
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-xl" id="submitButton" [disabled]="!signupForm.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

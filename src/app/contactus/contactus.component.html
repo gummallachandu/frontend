@@ -1,0 +1,49 @@
+<!-- Contact Section -->
+<div>&nbsp;</div>
+<section id="contact">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+    <hr class="star-dark mb-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+        <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+         <form [formGroup]="contactusForm" (submit)="contactUs(contactusForm.value)">
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>First Name</label>
+              <input type="text" class="form-control" formControlName="fullname" placeholder="Name"/>
+              <p class="help-block text-danger" *ngIf="!contactusForm.controls['fullname'].valid && contactusForm.controls['fullname'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Email Address</label>
+              <input type="text" class="form-control" formControlName="email" placeholder="Email"/>
+              <p class="help-block text-danger" *ngIf="!contactusForm.controls['email'].valid && contactusForm.controls['email'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Phone Number</label>
+              <input type="text" class="form-control"  formControlName="mobile" placeholder="Mobile"/>
+              <p class="help-block text-danger" *ngIf="!contactusForm.controls['mobile'].valid && contactusForm.controls['mobile'].touched"> This field is required</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Message" formControlName="comments" required="required" data-validation-required-message="Please enter a message."></textarea>
+              <p class="help-block text-danger" *ngIf="!contactusForm.controls['comments'].valid && contactusForm.controls['comments'].touched"> This field is required</p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-xl" id="submitButton" [disabled]="!contactusForm.valid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

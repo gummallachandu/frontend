@@ -1,0 +1,24 @@
+<!-- Header -->
+<header class="masthead bg-primary text-white text-center">
+  <div class="container">
+    <img class="img-fluid mb-5 d-block mx-auto" src="src/assets/img/profile.png" alt="">
+    <h1 class="text-uppercase mb-0">Start Bootstrap</h1>
+    <hr class="star-light">
+    <h2 class="font-weight-light mb-0">Web Developer - Graphic Artist - User Experience Designer</h2>
+    <form [formGroup]="projTitleForm" (submit)="postProject(projTitleForm.value)">
+      <div class="control-group">
+        <div class="form-group floating-label-form-group controls mb-0 pb-2">
+          <label>Project</label>
+          <input type="text" class="form-control" formControlName="projectTitle" placeholder="Project Title" />
+          <p class="help-block text-danger" *ngIf="!projTitleForm.controls['projectTitle'].valid && projTitleForm.controls['projectTitle'].touched"> This field is required</p>
+        </div>
+      </div>
+
+      <br>
+      <div id="success"></div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-xl" id="submitButton" [disabled]="!projTitleForm.valid">Post Project</button>
+      </div>
+    </form>
+  </div>
+</header>
